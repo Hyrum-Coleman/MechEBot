@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 import responses
 
 
@@ -15,27 +16,37 @@ def run_discord_bot():
     TOKEN = 'MTA2MzUyOTU3MjA0MzMzNzgzOQ.G0t121.4G_mkpqItGAsizKCPGbVjYDIfGQ0nYLrxS1XWg'
     intents = discord.Intents.default()
     intents.message_content = True
-    client = discord.Client(intents=intents)
+    bot = commands.Bot(command_prefix='!', intents=intents)
 
-    @client.event
+    @bot.event
     async def on_ready():
-        print(f'{client.user} is now running!')
+        print(f'{bot.user} is now running!')
 
-    @client.event
-    async def on_message(message):
-        if message.author == client.user:
-            return
+    # @bot.event
+    # async def on_message(message):
+    #     if message.author == bot.user:
+    #         return
+    #
+    #     username = str(message.author)
+    #     user_message = str(message.content)
+    #     channel = str(message.channel)
+    #
+    #     print(f'{username} said: "{user_message}" ({channel})')
+    #
+    #     if user_message[0] == '?':
+    #         user_message = user_message[1:]
+    #         await send_message(message, user_message, is_private=True)
+    #     else:
+    #         await send_message(message, user_message, is_private=False)
 
-        username = str(message.author)
-        user_message = str(message.content)
-        channel = str(message.channel)
+    @bot.command(name='ping')
+    async def ping(ctx):
+        response = f"Pong! {round(bot.latency * 1000)}ms"
+        await ctx.send(response)
 
-        print(f'{username} said: "{user_message}" ({channel})')
+    @bot.command(name='sleep')
+    async def sleep(ctx):
+        response = f"Sleeping..."
+        await ctx.send(response)
 
-        if user_message[0] == '?':
-            user_message = user_message[1:]
-            await send_message(message, user_message, is_private=True)
-        else:
-            await send_message(message, user_message, is_private=False)
-
-    client.run(TOKEN)
+    bot.run(TOKEN)
