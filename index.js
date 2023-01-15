@@ -23,6 +23,46 @@ const configuration = [
         reaction: "🔥",
         roleId: "1063995008799215627",
     },
+    {
+        messageId: "1063994462038138962",
+        reaction: "⚡",
+        roleId: "1064263846421876877",
+    },
+    {
+        messageId: "1063994462038138962",
+            reaction: "📚",
+        roleId: "1064265271063351356",
+    },
+    {
+        messageId: "1063994462038138962",
+        reaction: "📈",
+        roleId: "1064264994746794074",
+    },
+    {
+        messageId: "1063994462038138962",
+        reaction: "🏭",
+        roleId: "1064265140909920317",
+    },
+    {
+        messageId: "1063994462038138962",
+            reaction: "🤓",
+        roleId: "1064265317242634390",
+    },
+    {
+        messageId: "1063994462038138962",
+        reaction: "🌊",
+        roleId: "1064265363421921300",
+    },
+    {
+        messageId: "1063994462038138962",
+            reaction: "🖥️",
+        roleId: "1064265392119349502",
+    },
+    {
+        messageId: "1063994462038138962",
+            reaction: "🅰️",
+        roleId: "1064266003363680337",
+    },
 ];
 // create a new reactionrole manager (handles events)
 const manager = new ReactionRole(client, configuration);
