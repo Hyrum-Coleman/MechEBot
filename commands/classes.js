@@ -50,7 +50,7 @@ function get_office_hours(course) {
     }
     else if (course === 'meen2650-001') {
         let professor_hours = 'Tuesdays and Thursdays from 10:30 - 11:30 in MEK 2339\n\n'
-        professor_hours += 'Professor Kuhl also provides office hours by appointment, either in person or through zoom.';
+        professor_hours += 'Professor Pan also provides office hours by appointment, either in person or through zoom.';
         let ta_hours = 'none';
         return { professor_hours, ta_hours };
     }
