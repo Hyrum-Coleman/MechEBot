@@ -18,6 +18,11 @@ module.exports = {
                 {
                     name: '`/ping`',
                     value: 'Replies with Pong!',
+                },
+                {
+                    name: '`/classes <subcommand> <class>`',
+                    value: 'subcommands: `office-hours`, `final-exam`\n' +
+                        'class: pick from the dropdown menu',
                 }
                 
             ]);
