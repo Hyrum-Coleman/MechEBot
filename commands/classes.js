@@ -72,37 +72,42 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('classes')
         .setDescription('various utility commands for classes')
-        .addSubcommand((subcommand) =>
-            subcommand
-                .setName('office-hours')
-                .setDescription('view office hours information for a class')
-                .addStringOption((option) =>
-                    option
-                        .setName('class')
-                        .setDescription('the class to view information for')
-                        .setRequired(true)
-                        .addChoices(
-                        ...classes_collection.map(lesson => {
-                                return { name: lesson.name, value: lesson.value };
-                            })
-                        )
-                )
-        )
-        .addSubcommand((subcommand) =>
-            subcommand
-                .setName('final-exam')
-                .setDescription('view final exam information for a class')
-                .addStringOption((option) =>
-                    option
-                        .setName('class')
-                        .setDescription('the class to view information for')
-                        .setRequired(true)
-                        .addChoices(
+        .addSubcommandGroup(subcommandGroup =>
+            subcommandGroup
+                .setName('info')
+                .setDescription('get information about a class')
+            .addSubcommand((subcommand) =>
+                subcommand
+                    .setName('office-hours')
+                    .setDescription('view office hours information for a class')
+                    .addStringOption((option) =>
+                        option
+                            .setName('class')
+                            .setDescription('the class to view information for')
+                            .setRequired(true)
+                            .addChoices(
                             ...classes_collection.map(lesson => {
-                                return { name: lesson.name, value: lesson.value };
-                            })
-                        )
-                )
+                                    return { name: lesson.name, value: lesson.value };
+                                })
+                            )
+                    )
+            )
+            .addSubcommand((subcommand) =>
+                subcommand
+                    .setName('final-exam')
+                    .setDescription('view final exam information for a class')
+                    .addStringOption((option) =>
+                        option
+                            .setName('class')
+                            .setDescription('the class to view information for')
+                            .setRequired(true)
+                            .addChoices(
+                                ...classes_collection.map(lesson => {
+                                    return { name: lesson.name, value: lesson.value };
+                                })
+                            )
+                    )
+            ),
         ),
 
 
