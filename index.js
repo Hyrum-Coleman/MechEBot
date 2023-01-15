@@ -2,11 +2,30 @@
 // require the necessary discord.js classes
 const fs = require('node:fs')
 const path = require('node:path')
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Partials, Events, GatewayIntentBits, } = require('discord.js');
+const { ReactionRole } = require("discordjs-reaction-role");
 const { token } = require('./config.json');
 
 // create a new Discord client
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    partials: [Partials.Message, Partials.Reaction],
+    intents: [
+        GatewayIntentBits.Guilds, // These Unresolved variable warnings don't seem to affect the bot
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageReactions,
+    ],
+});
+
+// create reactionrole config
+const configuration = [
+    {
+        messageId: "1063994462038138962",
+        reaction: "🔥",
+        roleId: "1063995008799215627",
+    },
+];
+// create a new reactionrole manager (handles events)
+const manager = new ReactionRole(client, configuration);
 
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -39,3 +58,11 @@ for (const file of commandFiles) {
 
 // login to Discord with our app's token
 client.login(token);
+
+// stop stuff when the bot is stopped
+const destroy = () => {
+    manager.teardown();
+    client.destroy();
+};
+process.on("SIGINT", destroy);
+process.on("SIGTERM", destroy);
