@@ -16,13 +16,18 @@ module.exports = {
                     value: 'Displays this help menu!',
                 },
                 {
-                    name: '`/ping`',
-                    value: 'Replies with Pong!',
+                    name: '`/role`',
+                    value: 'Assigns the MechE role to the user',
                 },
                 {
-                    name: '`/classes <subcommand> <class>`',
-                    value: 'subcommands: `office-hours`, `final-exam`\n' +
+                    name: '`/classes <group> <subcommand> <class>`',
+                    value: 'groups: `info`\n' +
+                        'subcommands: `office-hours`, `final-exam`\n' +
                         'class: pick from the dropdown menu',
+                },
+                {
+                  name: '`/user <user>`',
+                    value: 'Gets information about a user',
                 }
                 
             ]);
