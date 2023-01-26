@@ -16,55 +16,23 @@ const client = new Client({
     ],
 });
 
-// create reactionrole config
+// create reaction role config
+const messageId = "1063994462038138962";
 const configuration = [
-    {
-        messageId: "1063994462038138962",
-        reaction: "🔥",
-        roleId: "1063995008799215627",
-    },
-    {
-        messageId: "1063994462038138962",
-        reaction: "⚡",
-        roleId: "1064263846421876877",
-    },
-    {
-        messageId: "1063994462038138962",
-            reaction: "📚",
-        roleId: "1064265271063351356",
-    },
-    {
-        messageId: "1063994462038138962",
-        reaction: "📈",
-        roleId: "1064264994746794074",
-    },
-    {
-        messageId: "1063994462038138962",
-        reaction: "🏭",
-        roleId: "1064265140909920317",
-    },
-    {
-        messageId: "1063994462038138962",
-            reaction: "🤓",
-        roleId: "1064265317242634390",
-    },
-    {
-        messageId: "1063994462038138962",
-        reaction: "🌊",
-        roleId: "1064265363421921300",
-    },
-    {
-        messageId: "1063994462038138962",
-            reaction: "🖥️",
-        roleId: "1064265392119349502",
-    },
-    {
-        messageId: "1063994462038138962",
-            reaction: "🅰️",
-        roleId: "1064266003363680337",
-    },
+    { messageId: messageId, reaction: "🔥", roleId: "1068220342709014620", },
+    { messageId: messageId, reaction: "⚡", roleId: "1068220399113994321", },
+    { messageId: messageId, reaction: "🧮", roleId: "1068220451609919639", },
+    { messageId: messageId, reaction: "🤓", roleId: "1068220484619087903", },
+    { messageId: messageId, reaction: "📈", roleId: "1068220548812910682", },
+    { messageId: messageId, reaction: "🏭", roleId: "1068220613036081255", },
+    { messageId: messageId, reaction: "🌊", roleId: "1068220684913885215", },
+    { messageId: messageId, reaction: "🖥️", roleId: "1068220738328350760", },
+    { messageId: messageId, reaction: "📉", roleId: "1068220836684779520", },
+    { messageId: messageId, reaction: "🪨", roleId: "1068220979236581438", },
+    { messageId: messageId, reaction: "🏎️", roleID: "1068221013130760322", },
+    { messageId: messageId, reaction: "🅰️", roleId: "1068221061067448320", },
 ];
-// create a new reactionrole manager (handles events)
+// create a new reaction role manager (handles events)
 const manager = new ReactionRole(client, configuration);
 
 const eventsPath = path.join(__dirname, 'events');
