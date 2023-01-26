@@ -17,7 +17,7 @@ const client = new Client({
 });
 
 // create reaction role config
-const messageId = "1063994462038138962";
+const messageId = "1068240292744011897";
 const configuration = [
     { messageId: messageId, reaction: "🔥", roleId: "1068220342709014620", },
     { messageId: messageId, reaction: "⚡", roleId: "1068220399113994321", },
