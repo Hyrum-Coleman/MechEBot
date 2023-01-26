@@ -20,9 +20,8 @@ module.exports = {
                     value: 'Assigns the MechE role to the user',
                 },
                 {
-                    name: '`/classes <group> <subcommand> <class>`',
-                    value: 'groups: `info`\n' +
-                        'subcommands: `office-hours`, `final-exam`\n' +
+                    name: '`/classes info <subcommand> <class>`',
+                    value: 'subcommands: `office-hours`, `final-exam`\n' +
                         'class: pick from the dropdown menu',
                 },
                 {
