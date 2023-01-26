@@ -72,42 +72,34 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('classes')
         .setDescription('various utility commands for classes')
-        .addSubcommandGroup(subcommandGroup =>
-            subcommandGroup
-                .setName('info')
-                .setDescription('get information about a class')
-            .addSubcommand((subcommand) =>
-                subcommand
-                    .setName('office-hours')
-                    .setDescription('view office hours information for a class')
-                    .addStringOption((option) =>
-                        option
-                            .setName('class')
-                            .setDescription('the class to view information for')
-                            .setRequired(true)
+        .addSubcommandGroup(subcommandGroup => subcommandGroup.setName('info').setDescription('get information about a class')
+            .addSubcommand((subcommand) => subcommand.setName('office-hours').setDescription('view office hours information for a class')
+                    .addStringOption((option) => option.setName('class').setDescription('the class to view information for').setRequired(true)
                             .addChoices(
                             ...classes_collection.map(lesson => {
                                     return { name: lesson.name, value: lesson.value };
                                 })
-                            )
-                    )
+                            ),
+                    ),
             )
-            .addSubcommand((subcommand) =>
-                subcommand
-                    .setName('final-exam')
-                    .setDescription('view final exam information for a class')
-                    .addStringOption((option) =>
-                        option
-                            .setName('class')
-                            .setDescription('the class to view information for')
-                            .setRequired(true)
+            .addSubcommand((subcommand) => subcommand.setName('final-exam').setDescription('view final exam information for a class')
+                    .addStringOption((option) => option.setName('class').setDescription('the class to view information for').setRequired(true)
                             .addChoices(
                                 ...classes_collection.map(lesson => {
                                     return { name: lesson.name, value: lesson.value };
                                 })
-                            )
-                    )
+                            ),
+                    ),
             ),
+        )
+        .addSubcommand((subcommand) => subcommand.setName('add').setDescription('add a class so you can see its channel!')
+                .addStringOption((option) => option.setName('class').setDescription('the class to add').setRequired(true)
+                    .addChoices(
+                        ...classes_collection.map(lesson => {
+                            return { name: lesson.name, value: lesson.value};
+                        })
+                    ),
+                ),
         ),
 
 
@@ -126,10 +118,15 @@ module.exports = {
                         { name: '`TA Hours`', value: office_hours.ta_hours },
                     ]);
                 await interaction.reply({embeds: [embed], ephemeral: false});
-            } else if (subcommand === 'final-exam') {
+            }
+            else if (subcommand === 'final-exam') {
                 const course = interaction.options.getString('class');
                 const final_exam = get_final_exam(course);
                 await interaction.reply({content: final_exam, ephemeral: false});
+            }
+
+            else if (subcommand === 'add') {
+                await interaction.reply({content: 'This command is not yet implemented!', ephemeral: true});
             }
         } catch (error) {
             console.error(error);
