@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,12 +16,15 @@ module.exports = {
             const message = await interaction.channel.messages.fetch(interaction.options.getString('message-id'));
             message.react('🔥')
             message.react('⚡')
-            message.react('📚')
+            message.react('🧮')
+            message.react('🤓')
             message.react('📈')
             message.react('🏭')
-            message.react('🤓')
             message.react('🌊')
             message.react('🖥️')
+            message.react('📉')
+            message.react('🪨')
+            message.react('🏎️')
             message.react('🅰️')
 
 
