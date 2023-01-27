@@ -68,8 +68,8 @@ const configuration = [
     },
     {
         messageId: "1068241194615832618",
-            reaction: "🏎️",
-        roleID: "1068221013130760322",
+        reaction: "🏎️",
+        roleId: "1068221013130760322",
     },
     {
         messageId: "1068241194615832618",
