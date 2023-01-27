@@ -33,4 +33,6 @@ jobs:
           ssh-keyscan -t rsa 20.25.45.169 >> ~/.ssh/known_hosts
           ls
           scp -r -i ~/.ssh/id_rsa ./dist/* hyrum@20.25.45.169:/home/hyrum/MechEBot
-          
+
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
