@@ -13,11 +13,11 @@ module.exports = {
             .addFields([
                 {
                     name: '`/help`',
-                    value: 'displays this help menu in a much longer message featuring more length and an addendum with a few extra steps plus one more',
+                    value: 'Diplays this help message!',
                 },
                 {
                     name: '`/role`',
-                    value: 'Assigns the MechE role to the user... this is updating right???',
+                    value: 'Assigns the MechE role to the user',
                 },
                 {
                     name: '`/classes info <subcommand> <class>`',
