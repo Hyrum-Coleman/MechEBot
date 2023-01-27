@@ -31,7 +31,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -t rsa 20.25.45.169 >> ~/.ssh/known_hosts
           ls
-          ssh -i ~/.ssh/id_rsa hyrum@20.25.45.169 bash '-c "cd ~/MechEBot && git pull && pm2 restart all"'
+          ssh -i ~/.ssh/id_rsa hyrum@20.25.45.169 bash '-c "cd ~/MechEBot && . ~/.profile && git pull && pm2 restart all "'
       
 
         env:
