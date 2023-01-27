@@ -13,7 +13,7 @@ module.exports = {
             .addFields([
                 {
                     name: '`/help`',
-                    value: 'Displays this help menu!',
+                    value: 'displays this help menu in a much longer message',
                 },
                 {
                     name: '`/role`',
