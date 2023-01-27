@@ -1,0 +1,38 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - MechEBot
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+
+      - name: npm install, build, and test
+        run: |
+          sudo apt install -y openssh-client
+          mkdir -p ~/.ssh
+          npm install
+          npm run build --if-present
+          echo "$SSH_KEY" | base64 -d > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -t rsa 20.25.45.169 >> ~/.ssh/known_hosts
+          ls
+          ssh -i ~/.ssh/id_rsa hyrum@20.25.45.169 bash '-c "cd ~/MechEBot && . ~/.profile && git pull && pm2 restart all "'
+      
+
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
