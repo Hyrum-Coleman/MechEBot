@@ -17,7 +17,7 @@ module.exports = {
                 },
                 {
                     name: '`/role`',
-                    value: 'Assigns the MechE role to the user',
+                    value: 'Assigns the MechE role to the user... this is updating right???',
                 },
                 {
                     name: '`/classes info <subcommand> <class>`',
