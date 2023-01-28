@@ -3,25 +3,33 @@ const { Events, EmbedBuilder} = require('discord.js');
 
 module.exports = {
     name: Events.ThreadCreate,
-    async execute(thread, client, guild) {
+    async execute(thread) {
         try {
             async function sendMsg(channel_id, embed) {
-                const channel = client.channels.cache.get(channel_id);
-                await channel.send({embeds: [embed]});
+                await thread.client.channels.fetch(channel_id).then(channel => {
+                    channel.send({embeds: [embed]});
+                });
             }
 
+            // wait 5 seconds to make sure the thread is created
+
+
             const embed = new EmbedBuilder()
-                .setTitle(`New Thread Created: ${thread.name}`)
-                .setDescription(`${thread.description}`)
+                .setTitle(`New Homework Question!`)
+                // I want the embed description to be the first message in the thread, but I can't figure out how to get it
+                .setDescription(`${thread.name}`)
                 .setColor(0x424549)
                 .setTimestamp(Date.now())
                 .addFields([
+                    {
+                        name: 'Question:',
+                        value: `${thread.lastMessage}`
+                    },
                     {
                         name: 'Link to Thread',
                         value: thread.url,
                     },
                     ])
-                .setImage(thread.image?.url);
 
             const thread_tag = thread.appliedTags[0];
             if (thread_tag === null) {
