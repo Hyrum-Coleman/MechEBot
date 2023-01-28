@@ -113,9 +113,20 @@ for (const file of commandFiles) {
 client.login(token);
 
 // stop stuff when the bot is stopped
-const destroy = () => {
-    manager.teardown();
-    client.destroy();
+const destroy = async () => {
+    console.log('Shutting down...');
+    try {
+        await manager.teardown();
+        await client.destroy();
+        console.log('Successfully shut down.');
+    }
+    catch (error) {
+        console.error('Error shutting down: ' + error);
+    }
+    finally {
+        process.exit(0);
+    }
+
 };
 process.on("SIGINT", destroy);
 process.on("SIGTERM", destroy);
