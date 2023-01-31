@@ -10,16 +10,6 @@ module.exports = {
                     channel.send({embeds: [embed]});
                 });
             }
-            // function getThreadMessage() {
-            //     thread.messages.fetch(thread.messages.lastMessageId).then(message => {
-            //
-            //         let lastMessage = message
-            //     });
-            //     return lastMessage
-            // }
-
-            // setTimeout(() => {
-            //     const threadMessage = getThreadMessage();
 
             const embed = new EmbedBuilder()
                 .setTitle(`New Homework Question!`)
@@ -71,7 +61,6 @@ module.exports = {
             } else {
                 return;
             }
-            // },  1000)
 
         }
         catch (error) {
