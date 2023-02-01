@@ -1,6 +1,7 @@
 const { Events, EmbedBuilder} = require('discord.js');
 
 const tagToChannel_obj = {
+    //    Tag Id                Channel Id
     "1062055127277654026": "1054199680260657232", // Thermodynamics
     "1062054945580384346": "1054199694009573486", // ECE
     "1062055029315473528": "1062039365762691072", // PDEs
@@ -15,7 +16,6 @@ const tagToChannel_obj = {
     "1070448658409066506": "1068279559239237652", // Dev Channel
 }
 const tagToChannel = new Map(Object.entries(tagToChannel_obj));
-
 
 module.exports = {
     name: Events.ThreadCreate,
