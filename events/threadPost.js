@@ -27,7 +27,7 @@ module.exports = {
             const thread_tag = thread.appliedTags[0]; // Get the tag of the thread
 
             let tagToChannel = {
-                "1062055127277654026": "1054199680260657232", // thermodynamics
+                "1062055127277654026": "1054199680260657232", // Thermodynamics
                 "1062054945580384346": "1054199694009573486", // ECE
                 "1062055029315473528": "1062039365762691072", // PDEs
                 "1062055360875208764": "1062039712556130434", // PDEs + Vector Calc
