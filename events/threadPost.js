@@ -35,7 +35,7 @@ module.exports = {
                 .setThumbnail('https://cdn.discordapp.com/attachments/1068279559239237652/1070017063856377956/5-53868_question-mark-clipart-question-mark-clip-art-question-red-question-mark-png.png')
                 .addFields([
                     {
-                        name: 'To answer this question, click the link below:',
+                        name: 'To view this question, click the link below:',
                         value: `[Click Here](${thread.url})`,
                     },
                 ])
