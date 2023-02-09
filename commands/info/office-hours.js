@@ -49,5 +49,10 @@ module.exports = function get_office_hours(course) {
         let ta_hours = 'none';
         return { professor_hours, ta_hours };
     }
-
+    else if (course === 'math3150-004') {  // DONE AND UP TO DATE
+        let professor_hours = 'Fridays from 10:00 - 12:30 PM in JWB 333\n\n'
+        professor_hours += 'Dr. Maitra also provides office hours by appointment, either in person or through zoom.';
+        let ta_hours = 'none';
+        return { professor_hours, ta_hours };
+    }
 };
