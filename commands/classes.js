@@ -1,72 +1,13 @@
+const get_office_hours = require('./info/office-hours.js');
+const get_final_exam = require('./info/final-exam.js');
+
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const classes_collection = [
     { name: 'thermodynamics-001', value: 'meen2300-001'},
     { name: 'ece-004', value: 'ece2210-004'},
     {name: 'manuf-for-eng-sys-001', value: 'meen2650-001'},
+    {name: 'PDEs-004', value: 'math3150-004'},
 ];
-
-function get_office_hours(course) {
-    if (course === 'meen2300-001') {
-        let professor_hours = 'Wednesday and Friday, 1:00 - 2:15.\n\n';
-        professor_hours += 'On Wednesday, the office hours are on zoom, and the password is 006740.\n';
-        professor_hours += 'On Friday, the office hours are in person in MEK 3352.\n\n';
-
-        let ta_hours = 'Thursdays from 12:00 - 1:00 on zoom.';
-        return { professor_hours, ta_hours };
-    }
-    else if (course === 'ece2210-004') {
-        let professor_hours = 'Mondays and Wednesdays after class until 12:15 pm in MEB 2278.\n\n';
-        professor_hours += 'Professor Simpson also provides office hours by appointment, either in person or through zoom.\n\n';
-
-        let ta_hours = 'Mondays:\n' +
-            'TA: Emma\n' +
-            '2:00 - 3:30 PM\n' +
-            'Room MEB 2267 and through Zoom:\n' +
-            'https://utah.zoom.us/j/5099844531\n' +
-            '\n' +
-            'Tuesdays:\n' +
-            'TA: Rich\n' +
-            '4:00 - 5:30 PM\n' +
-            'Room MEB 2267\n' +
-            '\n' +
-            'Wednesdays:\n' +
-            'TA: Md Golam Dastgir\n' +
-            '2:00 - 3:30 PM\n' +
-            'Room MEB 2255A\n' +
-            '\n' +
-            'Thursdays: \n' +
-            'TA: Braden\n' +
-            '2:00 - 3:30 PM\n' +
-            'Room MEB 2255A\n' +
-            '\n' +
-            'Fridays:\n' +
-            'TA: Kyle\n' +
-            '12:00 - 1:30 PM\n' +
-            'Room MEB 2255B\n\n' +
-            'TA: Utpal\n' +
-            '3:00 - 4:30 PM\n' +
-            'Room MEB 2255B\n';
-        return { professor_hours, ta_hours };
-    }
-    else if (course === 'meen2650-001') {
-        let professor_hours = 'Tuesdays and Thursdays from 10:30 - 11:30 in MEK 2339\n\n'
-        professor_hours += 'Professor Pan also provides office hours by appointment, either in person or through zoom.';
-        let ta_hours = 'none';
-        return { professor_hours, ta_hours };
-    }
-}
-
-function get_final_exam(course) {
-    if (course === 'meen2300-001') {
-        let info = "Placeholder\n";
-        return info;
-    }
-    if (course === 'ece2210-001') {
-        let info = "Placeholder\n";
-        return info;
-    }
-}
-
 
 module.exports = {
     data: new SlashCommandBuilder()
