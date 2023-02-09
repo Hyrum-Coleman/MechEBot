@@ -19,4 +19,5 @@ It also has a few other features, such as office hours and final exam informatio
 ```
 
 ## Running
-1. Run the bot with `npm start`
+1. Set up slash commands by running `deploy-commands.js`
+2. Run the bot with `npm start`
