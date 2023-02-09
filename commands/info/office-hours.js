@@ -1,5 +1,3 @@
-
-
 module.exports = function get_office_hours(course) {
     if (course === 'meen2300-001') { // DONE AND UP TO DATE
         let professor_hours = 'Wednesday and Friday, 1:00 - 2:15.\n\n';
