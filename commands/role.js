@@ -14,7 +14,7 @@ module.exports = {
                         .setDescription('the role to add')
                         .setRequired(true)
                         .addChoices(
-                            {'name': 'MechE', 'value': '1063531932568268803'},
+                            {'name': 'MechE', 'value': '1054200168083365899'},
                         )
                 )
         )
@@ -28,7 +28,7 @@ module.exports = {
                         .setDescription('the role to remove')
                         .setRequired(true)
                         .addChoices(
-                            {'name': 'MechE', 'value': '1063531932568268803'},
+                            {'name': 'MechE', 'value': '1054200168083365899'},
                 )
         ),
         ),
