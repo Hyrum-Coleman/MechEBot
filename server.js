@@ -30,7 +30,8 @@ const configuration = [
     {
         messageId: "1068241194615832618",
             reaction: "🧮",
-        roleId: "1068220451609919639", },
+        roleId: "1068220451609919639",
+    },
     {
         messageId: "1068241194615832618",
             reaction: "🤓",
@@ -75,6 +76,21 @@ const configuration = [
         messageId: "1068241194615832618",
             reaction: "🅰️",
         roleId: "1068221061067448320",
+    },
+    {
+        messageId: "1140061673349185616",
+            reaction: "🧱",
+        roleId: "1131250410548637747",
+    },
+    {
+        messageId: "1140061673349185616",
+            reaction: "🔊",
+        roleId: "1131250711951331388",
+    },
+    {
+        messageId: "1140061673349185616",
+            reaction: "🎛️",
+        roleId: "1131250819296141422",
     },
 ];
 // create a new reaction role manager (handles events)

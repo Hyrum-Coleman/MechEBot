@@ -14,19 +14,9 @@ module.exports = {
     async execute(interaction) {
         try {
             const message = await interaction.channel.messages.fetch(interaction.options.getString('message-id'));
-            message.react('🔥')
-            message.react('⚡')
-            message.react('🧮')
-            message.react('🤓')
-            message.react('📈')
-            message.react('🏭')
-            message.react('🌊')
-            message.react('🖥️')
-            message.react('📉')
-            message.react('🪨')
-            message.react('🏎️')
-            message.react('🅰️')
-
+            message.react('🧱')
+            message.react('🔊')
+            message.react('🎛️')
 
             await interaction.reply({ content: 'Reactions added!', ephemeral: true });
         } catch (error) {
