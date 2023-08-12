@@ -21,12 +21,6 @@ module.exports = {
     name: Events.ThreadCreate,
     async execute(thread) {
         try {
-            async function sendMsg(channel_id, embed) {
-                await thread.client.channels.fetch(channel_id).then(channel => {
-                    channel.send({embeds: [embed]});
-                });
-            }
-
             const embed = new EmbedBuilder()
                 .setTitle(`New Homework Question!`)
                 .setDescription(`${thread.name}`)
@@ -43,6 +37,10 @@ module.exports = {
             const thread_tag = thread.appliedTags[0]; // Get the tag of the thread
             const channel_id = tagToChannel.get(thread_tag); // Get the channel id from the tag
             await sendMsg(channel_id, embed);
+
+            await thread.client.channels.fetch(channel_id).then(channel => {
+                channel.send({embeds: [embed]})
+            })
         }
         catch (error) {
             console.error(error);
